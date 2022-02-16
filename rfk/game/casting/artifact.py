@@ -23,6 +23,7 @@ class Artifacts(Actor):
 
 
 
+
     def __init__(self):
         """Constructs a new Actor."""
         self._text = ""
