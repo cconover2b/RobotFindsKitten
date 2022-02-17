@@ -1,16 +1,8 @@
 from game.casting.actor import Actor
-
-# TODO: Implement the Artifact class here. Don't forget to inherit from Actor!
-
-		'''artifact = Artifact()
-        artifact.set_text(text)
-        artifact.set_font_size(FONT_SIZE)
-        artifact.set_color(color)
-        artifact.set_position(position)
-        artifact.set_message(message)
-        cast.add_actor("artifacts", artifact)'''
+from game.shared.color import Color
+from game.shared.point import Point
         
-class Artifacts(Actor):
+class Artifact(Actor):
     """A visible, moveable thing that participates in the game. 
     
     The responsibility of Actor is to keep track of its appearance, position and velocity in 2d 
@@ -25,8 +17,6 @@ class Artifacts(Actor):
     """
     def __init__(self):
         super().__init__()
-
-    def __init__(self):
         """Constructs a new Actor."""
         self._text = ""
         self._font_size = 15
