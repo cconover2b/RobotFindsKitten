@@ -2,6 +2,14 @@ from game.casting.actor import Actor
 
 # TODO: Implement the Artifact class here. Don't forget to inherit from Actor!
 
+		'''artifact = Artifact()
+        artifact.set_text(text)
+        artifact.set_font_size(FONT_SIZE)
+        artifact.set_color(color)
+        artifact.set_position(position)
+        artifact.set_message(message)
+        cast.add_actor("artifacts", artifact)'''
+        
 class Artifacts(Actor):
     """A visible, moveable thing that participates in the game. 
     
@@ -13,16 +21,10 @@ class Artifacts(Actor):
         _font_size (int): The font size to use.
         _color (Color): The color of the text.
         _position (Point): The screen coordinates.
-        _velocity (Point): The speed and direction.
+        _message (string): message
     """
     def __init__(self):
         super().__init__()
-
-
-    
-
-
-
 
     def __init__(self):
         """Constructs a new Actor."""
@@ -30,7 +32,7 @@ class Artifacts(Actor):
         self._font_size = 15
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
-        self._velocity = Point(0, 0)
+        self._message = ""
 
     def get_color(self):
         """Gets the actor's color as a tuple of three ints (r, g, b).
@@ -64,26 +66,14 @@ class Artifacts(Actor):
         """
         return self._text
 
-    def get_velocity(self):
+    def get_message(self):
         """Gets the actor's speed and direction.
         
         Returns:
             Point: The actor's speed and direction.
         """
-        return self._velocity
+        return self._message
     
-    def move_next(self, max_x, max_y):
-        """Moves the actor to its next position according to its velocity. Will wrap the position 
-        from one side of the screen to the other when it reaches the given maximum x and y values.
-        
-        Args:
-            max_x (int): The maximum x value.
-            max_y (int): The maximum y value.
-        """
-        x = (self._position.get_x() + self._velocity.get_x()) % max_x
-        y = (self._position.get_y() + self._velocity.get_y()) % max_y
-        self._position = Point(x, y)
-
     def set_color(self, color):
         """Updates the color to the given one.
         
@@ -116,10 +106,10 @@ class Artifacts(Actor):
         """
         self._text = text
 
-    def set_velocity(self, velocity):
+    def set_message(self, message):
         """Updates the velocity to the given one.
         
         Args:
             velocity (Point): The given velocity.
         """
-        self._velocity = velocity
+        self._message = message 
